@@ -1,6 +1,6 @@
 # Discrete Time Markov Chain Simulator
 
-A simulator for discrete-time markov chain written in C++.
+A simulator for discrete-time markov chain written in C++ (i will make visualizer soon :b).
 
 Compile with:
 ```
