@@ -1,3 +1,5 @@
+# Discrete Time Markov Chain Simulator
+
 A simulator for discrete-time markov chain written in C++.
 
 Compile with:
@@ -26,4 +28,18 @@ mcdonalds
 tacobell
 0.5 0.5
 0.5 0.5
+```
+
+## Main.cpp
+
+A Markov Chain with *n* states is initialized with:
+```
+DTMC x(size);
+x.read(); // read in the dtmc file from stdin.
+```
+
+The simulation is then run as follows:
+```
+x.step(numberOfIterations); // simulate stepping through the states
+x.summary(); // summarize the distribution visited states
 ```

@@ -14,7 +14,6 @@ int main(){
     DTMC x(size);
     x.read();
     x.step(numberOfIterations);
-
     x.summary();
 
     return 0;
