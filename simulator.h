@@ -16,6 +16,7 @@ class DTMC{
         DTMC(int size): size{size}, currentState{0}{}
         void read();
         void step(int count = 0);
+        void summary();
     
     private:
         void nextState();

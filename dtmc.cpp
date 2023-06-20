@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include <iterator>
+#include <numeric>
 #include "simulator.h"
 
 void DTMC::read(){
@@ -17,6 +18,7 @@ void DTMC::read(){
         states.push_back(input);
         stateCount.push_back(0);
     }
+    stateCount[0] = 1;
     const int transitionMatrixSize = size * size;
     std::cout 
     << "Provide the entries in the transition matrix p_ij. Expecting a " 
@@ -61,7 +63,30 @@ void DTMC::nextState(){
 
     int nextState = pij(gen);
 
-    std::cout << "Moving from state " << states[currentState] << " to next state " << states[nextState] << std::endl;
-    ++stateCount[currentState];
+    // std::cout << "Moving from state " << states[currentState] << " to next state " << states[nextState] << std::endl;
     currentState = nextState;
+    ++stateCount[currentState];
+}
+
+void DTMC::summary(){
+    std::cout << "== Properties ==" << std::endl;
+    std::cout << "Current State: " << states[currentState] << std::endl;
+
+    std::cout << "== Transition probabilities ==" << std::endl;
+    for(int i = 0; i < size; ++i){
+        for(int j = 0; j < size; ++j){
+            int ij = i * size + j;
+            double pij = transitionMatrix[ij];
+            std::cout << "P(" << states[i] << " -> " << states[j] << ") = " << pij << std::endl;
+        }
+    }
+
+    int totalIterations = std::accumulate(stateCount.begin(), stateCount.end(), 0);
+    std::cout << "== Distribution of visited states ==" << std::endl;
+    for(int i = 0; i < size; ++i){
+        int ct = stateCount[i];
+        double pct = 100 * ct / totalIterations;
+        std::cout << states[i] << ": " << ct << " (" << pct << "%)" << std::endl;
+    }
+
 }
