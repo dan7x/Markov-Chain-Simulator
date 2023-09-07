@@ -31,4 +31,7 @@
 *.out
 *.app
 
-sim.dSYM/*
+cpp_cli_ver/sim.dSYM/*
+python_ver/.idea/*
+python_ver/lib/*
+.vscode/*

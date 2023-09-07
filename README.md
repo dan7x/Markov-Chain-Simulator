@@ -1,18 +1,22 @@
-# Discrete Time Markov Chain Simulator
+# Discrete Time Markov Chain Simulator and Analyzer
 
-A simulator for discrete-time markov chain written in C++ (i will make visualizer soon :b).
+A simulator and analyzer for discrete-time markov chains written in C++ (i will make visualizer soon :b).
 
-Compile with:
-```
-g++ -std=c++17 dtmc.cpp main.cpp -o sim
-```
+## Requires
+- [Eigen-3.4.0](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 
-Usage:
+Run `make` to compile.
+
+## Usage
+
+The program consumes a (time-homogenous) discrete time markov chain specification along with some simulation params (see below) and returns the results of a simulated random walk from the starting state given the simulation parameters.
+
+Run with the following (assume the txt file contains the chain and simulation specs):
 ```
 ./sim < markovChainSpec.txt
 ```
 
-Where the file is in the following format:
+The sim files have the following format:
 ```
 [# of states (the first one being the starting state)]
 [# of simulated iterations]
@@ -28,6 +32,13 @@ mcdonalds
 tacobell
 0.5 0.5
 0.5 0.5
+```
+Denotes the following chain:
+
+[img]
+
+### Annotated Sample Output:
+```
 ```
 
 ## Main.cpp
