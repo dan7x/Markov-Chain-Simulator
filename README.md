@@ -1,6 +1,14 @@
 # Discrete Time Markov Chain Simulator and Analyzer
 
-A simulator and analyzer for discrete-time markov chains written in C++ (i will make visualizer soon :b).
+A simulator and analyzer for discrete-time markov chains written in Python/C++.
+
+# Python Version
+
+todo: write this
+
+pip install pipfile and run viz.py
+
+# C++ Version
 
 ## Requires
 - [Eigen-3.4.0](https://eigen.tuxfamily.org/index.php?title=Main_Page)
